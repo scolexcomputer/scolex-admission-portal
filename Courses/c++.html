@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ | Scolex Computer Classes</title>
+
+    <style>
+
+            *{
+                margin:0;
+                padding:0;
+                box-sizing:border-box;
+                font-family:Arial,sans-serif;
+            }
+
+            body{
+                background:#eaf3ff;
+            }
+
+            .container{
+                width:90%;
+                max-width:1000px;
+                margin:30px auto;
+                background:white;
+                border-radius:15px;
+                box-shadow:0 5px 20px rgba(0,0,0,.2);
+                overflow:hidden;
+            }
+
+
+            /* Header */
+
+            .header{
+                background:linear-gradient(135deg,#004aad,#00bcd4);
+                color:white;
+                text-align:center;
+                padding:30px;
+            }
+
+            .header h1{
+                font-size:42px;
+            }
+
+            .header h2{
+                margin-top:10px;
+                color:#ffeb3b;
+            }
+
+
+
+            /* Information */
+
+            .info{
+                display:grid;
+                grid-template-columns:repeat(4,1fr);
+                gap:15px;
+                padding:25px;
+                background:#f5faff;
+            }
+
+            .card{
+                background:linear-gradient(135deg,#1565c0,#00acc1);
+                color:white;
+                text-align:center;
+                padding:20px;
+                border-radius:10px;
+            }
+
+            .card h3{
+                margin-bottom:10px;
+            }
+
+
+
+            /* Course Content */
+
+            .content{
+                padding:30px;
+            }
+
+            .content h2{
+                color:#004aad;
+                border-left:5px solid #004aad;
+                padding-left:10px;
+                margin-bottom:25px;
+            }
+
+
+            .course-list{
+                display:grid;
+                grid-template-columns:1fr 1fr;
+                gap:30px;
+            }
+
+
+            .course-list ol{
+                margin-left:25px;
+            }
+
+
+            .course-list li{
+                margin-bottom:15px;
+                font-size:17px;
+                line-height:1.5;
+            }
+
+
+            .course-list ul{
+                margin:8px 0 0 20px;
+            }
+
+
+            .course-list ul li{
+                font-size:15px;
+                margin:5px 0;
+            }
+
+
+
+            /* Button */
+
+            .footer{
+                text-align:center;
+                padding:30px;
+            }
+
+
+            .btn{
+                display:inline-block;
+                background:#004aad;
+                color:white;
+                padding:14px 35px;
+                text-decoration:none;
+                border-radius:30px;
+                font-weight:bold;
+                transition:.3s;
+            }
+
+
+            .btn:hover{
+                background:#ff5722;
+            }
+
+
+
+            /* Responsive */
+
+            @media(max-width:768px){
+
+            .info{
+                grid-template-columns:1fr;
+            }
+
+            .course-list{
+                grid-template-columns:1fr;
+            }
+
+            .header h1{
+                font-size:30px;
+            }
+
+            }
+
+      </style>
+
+    </head>
+
+<body>
+
+
+    <div class="container">
+
+
+        <div class="header">
+
+    <h1>C++</h1>
+
+    <h2>Basic Programming in C++</h2>
+
+</div>
+
+
+
+<div class="info">
+
+
+    <div class="card">
+
+         <h3>📅 Duration</h3>
+
+            <p>03 Months</p>
+
+    </div>
+
+
+
+    <div class="card">
+
+    <h3>💰 Fee</h3>
+
+    <p>₹3,000</p>
+
+    </div>
+
+
+
+    <div class="card">
+
+    <h3>📝 Examination</h3>
+
+    <p>Theory + Practical + Viva</p>
+
+    </div>
+
+
+
+    <div class="card">
+
+    <h3>🎓 Certificate</h3>
+
+    <p>Available</p>
+
+    </div>
+
+
+
+</div>
+
+
+
+
+
+
+<div class="content">
+
+
+<h2>Course Contents</h2>
+
+
+    <div class="course-list">
+
+
+
+        <div>
+
+
+            <ol>
+
+
+
+                <li>
+
+                    <b>Introduction to C++</b>
+
+                    <ul>
+
+                        <li>History of C++ Language</li>
+
+                        <li>Features of C++</li>
+
+                        <li>Difference Between C & C++</li>
+
+                        <li>Structure of C++ Program</li>
+
+                        <li>Writing First C++ Program</li>
+
+                    </ul>
+
+                </li>
+
+
+
+
+
+                <li>
+
+                    <b>Basic Concepts of C++</b>
+
+                        <ul>
+
+                            <li>Tokens in C++</li>
+
+                            <li>Keywords & Identifiers</li>
+
+                            <li>Variables & Constants</li>
+
+                            <li>Data Types</li>
+
+                            <li>Operators</li>
+
+                        </ul>
+
+                </li>
+
+
+
+
+
+                <li>
+
+                    <b>Input & Output</b>
+
+                        <ul>
+
+                            <li>cin Statement</li>
+
+                            <li>cout Statement</li>
+
+                            <li>Formatting Output</li>
+
+                            <li>Basic Program Practice</li>
+
+                        </ul>
+
+                </li>
+
+
+
+
+
+                <li>
+
+                    <b>Control Statements</b>
+
+                        <ul>
+
+                            <li>If Statement</li>
+
+                            <li>If-Else Statement</li>
+
+                            <li>Nested If</li>
+
+                            <li>Switch Statement</li>
+
+                        </ul>
+
+                </li>
+
+
+
+
+
+                <li>
+
+                    <b>Looping Statements</b>
+
+                        <ul>
+
+                            <li>For Loop</li>
+
+                            <li>While Loop</li>
+
+                            <li>Do-While Loop</li>
+
+                            <li>Nested Loop</li>
+
+                        </ul>
+
+                </li>
+
+
+
+            </ol>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <div>
+
+
+            <ol start="6">
+
+
+
+                <li>
+
+                    <b>Functions in C++</b>
+
+                        <ul>
+
+                            <li>Introduction to Function</li>
+
+                            <li>Function Declaration</li>
+
+                            <li>Function Calling</li>
+
+                            <li>Return Values</li>
+
+                        </ul>
+
+                </li>
+
+
+
+
+
+                <li>
+
+                    <b>Arrays & Strings</b>
+
+                        <ul>
+
+                            <li>One Dimensional Array</li>
+
+                            <li>Two Dimensional Array</li>
+
+                            <li>String Handling</li>
+
+                            <li>Basic Programs</li>
+
+                        </ul>
+
+                </li>
+
+
+
+
+
+                <li>
+
+                    <b>Object Oriented Programming Basics</b>
+
+                        <ul>
+
+                            <li>Introduction to OOP</li>
+
+                            <li>Class & Object</li>
+
+                            <li>Data Members</li>
+
+                            <li>Member Functions</li>
+
+                        </ul>
+
+                </li>
+
+
+
+
+
+                <li>
+
+                    <b>Constructor & Inheritance Basics</b>
+
+                        <ul>
+
+                            <li>Introduction to Constructor</li>
+
+                            <li>Types of Constructor</li>
+
+                            <li>Basic Inheritance Concept</li>
+
+                        </ul>
+
+                </li>
+
+
+
+
+
+                <li>
+
+                    <b>Project Work & Revision</b>
+
+                        <ul>
+
+                            <li>Practical Programs</li>
+
+                            <li>Mini Project</li>
+
+                            <li>Revision Classes</li>
+
+                            <li>Mock Test</li>
+
+                        </ul>
+
+                </li>
+
+
+
+
+
+                <li>
+
+                    <b>Final Examination & Certificate</b>
+
+                        <ul>
+
+                            <li>Theory Examination</li>
+
+                            <li>Practical Examination</li>
+
+                            <li>Viva</li>
+
+                            <li>Course Completion Certificate</li>
+
+                        </ul>
+
+                </li>
+
+
+
+             </ol>
+
+
+        </div>
+
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+    <div class="footer">
+
+
+        <a href="../html/page.html" class="btn">Apply for Admission</a>
+
+
+    </div>
+</div>
+
+</body>
+</html>

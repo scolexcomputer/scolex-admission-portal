@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scolex Mock Test</title>
+  <link rel="stylesheet" href="css/mocktest.css">
+</head>
+
+<body>
+
+  <header>
+    <h1>Scolex Computer Classes</h1>
+    <h2>Online Mock Test</h2>
+
+    <div class="info">
+      <span>
+        Student: <b id="studentName">Loading...</b>
+      </span>
+
+      <span>
+        Time Left: <b id="timer">30:00</b>
+      </span>
+    </div>
+  </header>
+
+  <div class="main">
+
+    <!-- Main Question Box -->
+    <div class="question-box">
+
+      <h3 id="questionNumber">Question 1</h3>
+
+      <p id="questionText">Loading Question...</p>
+
+      <div id="options">
+        <!-- Radio button options are dynamically injected here by js/mocktest.js -->
+      </div>
+
+      <div class="buttons">
+        <button type="button" onclick="previousQuestion()">&larr; Previous</button>
+        <button type="button" onclick="nextQuestion()">Save &amp; Next &rarr;</button>
+        <button type="button" class="btn-submit" onclick="confirmSubmit()">Submit Test</button>
+      </div>
+
+    </div>
+
+    <!-- Question Palette Sidebar -->
+    <div class="palette">
+      <h3>Questions</h3>
+      <div id="questionPalette">
+        <!-- Palette buttons (1, 2, 3...) injected here -->
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/mocktest.js"></script>
+
+</body>
+</html>

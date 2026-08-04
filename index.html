@@ -6,15 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scolex Computer Classes</title>
     <meta name="description" content="Scolex Computer Classes provides DCA, ADCA, CCC, Tally Prime, Web Designing, Python Programming and other professional computer courses in Motipur, Muzaffarpur.">
-    <meta name="description" content="Official admission portal for Scolex Computer Class.">
-    <!-- 3. Open Graph Tags (for link previews on WhatsApp, Facebook, LinkedIn) -->
-    <meta property="og:title" content="Scolex Admission Portal">
-    <meta property="og:description" content="Scolex Computer Class Admission Portal">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://scolexcomputer.github.io/scolex-admission-portal/">
     <meta property="og:title" content="Scolex Computer Classes">
     <meta property="og:description" content="Professional Computer Training Institute in Motipur, Muzaffarpur">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="gallery.css">
 </head>
 
 <body>
@@ -77,12 +72,22 @@
                 </div>
 
             </li>
+            <li><a href="video.html">Video Tutorials</a></li>
             <li><a href="login.html">Mock Test</a></li>
             <li><a href="#contact">Contact</a></li>
 
-            <li><a href="#">Downloads</a></li>
+            <li><a href="#">Downloads</a>
+            
+                 <div class="dropdown">
+                    <ul>
+                        <li><a href="notes.html">Notes</a></li>
+                        <li><a href="#Project work">Project Work</a></li>
+                    </ul>
+                </div>
+            
+            </li>
 
-            <li><a href="#">About</a></li>
+            <li><a href="#About">About</a></li>
 
         </ul>
     </nav>
@@ -97,26 +102,14 @@
         <h1>Welcome to Scolex Computer Classes</h1>
 
         <p>
-            Welcome to <strong>Scolex Computer Classes</strong>, one of the leading computer
-            training institutes in Motipur, Bihar. Established in <strong>2016</strong> by
-            <strong>Sarfaraz Faijee</strong>, our institute has been dedicated to providing
-            quality computer education with practical, career-oriented training. Over the years,
-            we have successfully trained <strong>1000+ students</strong>, helping them build
-            strong digital skills and achieve success in academics, competitive examinations,
-            and professional careers.
-            <br><br>
-            At Scolex Computer Classes, we offer a wide range of professional courses including
-            DCA, ADCA, DCA with Tally, DTP, Tally Prime with GST, Programming Languages
-            (C, C++, Java, Python), Web Designing, HTML, CSS, and many more. Our experienced
-            faculty, modern computer lab, smart classrooms, practical learning approach, and
-            affordable fee structure ensure that every student receives the best learning
-            experience.
-            <br><br>
-            Our mission is to empower students with the latest computer knowledge, improve
-            their confidence, and prepare them for higher education, government examinations,
-            private sector jobs, freelancing, and entrepreneurship. At Scolex Computer Classes,
-            we believe that quality education and practical skills are the foundation of a
-            successful future.
+            Welcome to <strong>Scolex Computer Classes, </strong> one of the leading <strong> training institutes in Motipur, Muzaffarpur</strong>,
+            Bihar. <strong> 2016 </strong>, we have been committed to providing <strong>, "Practical, and 
+            career-oriented computer education"</strong> to students of all backgrounds.</p>
+
+        <p>  Founded by <strong>Sarfaraz Faijee</strong>, our <strong>"Institute has successfully trained 1000+ Students"</strong>,
+             helping them build strong digital skills and achieve success in academics, 
+             competitive examinations, professional careers, freelancing, and entrepreneurship.
+        <br>
         </p>
         <div class="buttons">
             <a href="html/page.html" class="btn">Apply Now</a>
@@ -127,6 +120,42 @@
 
 </section>
 
+
+<!-- ================= GALLERY SECTION ================= -->
+
+<section id="gallery">
+
+    <h2 class="hg">Our Gallery</h2>
+
+    <p class="subtitle">
+        Glimpses of Scolex Computer Classes, Smart Lab, Students and Learning Environment.
+    </p>
+
+    <div class="slideshow-container">
+
+    <div class="slide">
+        <img src="images/gallery/banner.jpeg" alt="Lab">
+    </div>
+
+    <div class="slide">
+        <img src="images/gallery/classroom.jpeg" alt="Lights">
+    </div>
+
+    <div class="slide">
+        <img src="images/gallery/lab.jpeg" alt="Mountains">
+    </div>
+
+    <div class="slide">
+        <img src="images/gallery/smartboard.jpeg" alt="Forest">
+    </div>
+
+    <button class="prev" onclick="changeSlide(-1)">❮</button>
+    <button class="next" onclick="changeSlide(1)">❯</button>
+
+</div>
+
+
+</section>
 <!-- ================= FEATURES ================= -->
 
 <section class="features">
@@ -212,6 +241,47 @@
 
 </section>
 
+<section class="home" id="About">
+
+    <div class="home-content">
+
+        <h1 style="text-align: center;">About Us</h1>
+
+        <p>
+            <strong>"Scolex Computer Classes is a trusted computer training institute located in Motipur, Bihar, 
+            established in 2016 by Sarfaraz Faijee with the vision of making quality computer education
+            accessible and affordable for every student."
+            </strong>
+        </p>
+
+        <p>
+            For nearly a decade, we have focused on providing practical, skill-based training that prepares
+            students for real-world challenges. Our courses are designed to strengthen technical knowledge
+            while building confidence and professional skills.
+        </p>
+        <p>
+            With experienced instructors, well-equipped computer labs, smart classrooms, and a student-friendly
+            learning environment, we ensure every learner receives personalized guidance and hands-on experience.
+            Our curriculum is regularly updated to match current industry requirements, 
+            enabling students to stay ahead in today's digital world.
+        </p>
+
+        <p>
+            Our mission is to empower students with modern computer knowledge and practical skills that open
+            doors to higher education, government examinations, private-sector employment, freelancing, and entrepreneurship.
+        </p>
+        
+        <p>
+            At Scolex Computer Classes, we believe that quality education, practical learning, 
+            and continuous innovation are the keys to a brighter future. We remain committed to 
+            helping every student achieve their academic and career goals through excellence in computer education.
+
+        <br>
+        </p>
+    </div>
+
+</section>
+
 <!-- ================= CONTACT US ================= -->
 
 <section class="contact" id="contact">
@@ -256,7 +326,11 @@
 
 </section>
        
-
+<script src="script.js"></script>
 </body>
-
+<footer> <!-- Bottom -->
+    <div class="footer-bottom">
+        <marquee>© 2026 Scolex Computer Classes | Founded by <strong>Sarfaraz Faijee</strong> | All Rights Reserved.</marquee>
+    </div>
+</footer>
 </html>

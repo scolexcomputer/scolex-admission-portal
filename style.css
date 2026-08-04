@@ -269,6 +269,31 @@ nav ul li:hover > .dropdown{
     .home-content h1{font-size:32px;}
     .home-content p{text-align:left;}
 }
+
+
+
+/* ================= GALLERY ================= */
+
+#gallery{
+
+    width:90%;
+    max-width:1200px;
+    margin:50px auto;
+
+}
+h2.hg{
+    font-size:36px;
+    color:#0d47a1;
+    margin-bottom:15px;
+    text-shadow:2px 2px 5px #999;
+    text-align: center;
+}
+p.subtitle{
+    font-size: 28px;
+    text-align: center;
+    color: fuchsia;
+}
+
 /* ================= FEATURES ================= */
 
 .features{
@@ -427,5 +452,44 @@ nav ul li:hover > .dropdown{
 @media(max-width:768px){
     .contact-box{
         flex-direction:column;
+    }
+}
+
+
+
+
+.footer{
+    background:#78b166;
+    color:#fff;
+    font-family:Arial,Helvetica,sans-serif;
+    margin-top:40px;
+}
+
+.footer-marquee{
+    background:#ff9800;
+    color:#fff;
+    overflow:hidden;
+    white-space:nowrap;
+    padding:12px 0;
+    font-weight:bold;
+}
+
+.marquee-text{
+    display:inline-block;
+    padding-left:100%;
+    animation:scroll 20s linear infinite;
+}
+
+.footer-bottom{
+    text-align:center;
+    background:#06bcbf;
+    padding:15px;
+    font-size:15px;
+    border-top:1px solid rgba(255, 255, 255, 0.986);
+}
+
+@media(max-width:768px){
+    .footer-container{
+        padding:25px;
     }
 }

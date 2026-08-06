@@ -52,3 +52,20 @@ body {
 .next:hover {
     background: rgba(0,0,0,0.8);
 }
+
+/* Mobile Responsive Adjustments for Slideshow */
+@media (max-width: 768px) {
+    .slideshow-container {
+        width: 92%;
+        margin: 20px auto;
+    }
+
+    .slide img {
+        height: 250px; /* Reduced fixed height for smaller screens */
+    }
+
+    .prev, .next {
+        padding: 8px 12px;
+        font-size: 18px;
+    }
+}

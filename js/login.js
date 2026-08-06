@@ -1,55 +1,108 @@
-// Use the SAME Google Apps Script Web App URL from signup
-const scriptURL = "https://script.google.com/macros/s/AKfycby9ybIH09_UxwVm4EGIqgqNti1nV7GuR3202ohQH5TJ43mq8O6HAki0YTS2UUpwIOrFVA/exec";
+//================================
+// SCOLEX STUDENT LOGIN
+//================================
 
-function login() {
-  const loginId = document.getElementById("loginId").value.trim();
-  const password = document.getElementById("password").value.trim();
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxq0Z8M-BMplN1DneyJayE6F6imrTxzm_e92aP_wTulXq_sSZWXvPcZcfqlUoZdAU6F9w/exec";
 
-  if (!loginId || !password) {
-    alert("Please enter both Mobile/ID and Password.");
-    return;
-  }
 
-  const loginBtn = document.getElementById("loginBtn");
-  loginBtn.innerText = "Logging in...";
-  loginBtn.disabled = true;
+function login(){
 
-  const payload = {
-    action: "login",
-    loginId: loginId,
-    password: password
-  };
 
-  fetch(scriptURL, {
-    method: "POST",
-    body: JSON.stringify(payload)
-  })
-    .then(async (response) => {
-      if (!response.ok) {
-        throw new Error("Server error");
-      }
-      return response.json();
-    })
-    .then((result) => {
-      loginBtn.innerText = "Login";
-      loginBtn.disabled = false;
+const loginId = document.getElementById("loginId").value.trim();
 
-      if (result.status === "success") {
-        alert("Login Successful! Welcome " + result.user.name);
-        
-        // Save user data in browser Session Storage for dashboard/exam access
-        sessionStorage.setItem("scolex_user", JSON.stringify(result.user));
+const password = document.getElementById("password").value.trim();
 
-        // Redirect to dashboard or exam portal
-        window.location.href = "instructions.html";
-      } else {
-        alert(result.message || "Invalid Mobile/ID or Password.");
-      }
-    })
-    .catch((error) => {
-      console.error(error);
-      loginBtn.innerText = "Login";
-      loginBtn.disabled = false;
-      alert("Connection error. Please try again.");
-    });
+
+
+if(loginId === "" || password === ""){
+
+alert("Please enter login details");
+
+return;
+
+}
+
+
+
+const loginData = {
+
+action:"login",
+
+loginId:loginId,
+
+password:password
+
+};
+
+
+
+fetch(SCRIPT_URL, {
+
+method:"POST",
+
+headers:{
+
+"Content-Type":"text/plain;charset=utf-8"
+
+},
+
+body:JSON.stringify(loginData)
+
+})
+
+
+.then(response=>response.json())
+
+
+.then(data=>{
+
+
+console.log(data);
+
+
+
+if(data.status === "success"){
+
+
+localStorage.setItem(
+"student",
+JSON.stringify(data.student)
+);
+
+
+
+alert(
+"Login Successful\nWelcome "+data.student.name
+);
+
+
+
+window.location.href="dashboard.html";
+
+
+}
+
+else{
+
+
+alert(data.message);
+
+}
+
+
+})
+
+
+.catch(error=>{
+
+
+console.error("Login Error:",error);
+
+
+alert("Unable to connect with server");
+
+
+});
+
+
 }

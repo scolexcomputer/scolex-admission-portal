@@ -2,61 +2,592 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scolex Mock Test</title>
-  <link rel="stylesheet" href="css/mocktest.css">
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Scolex Online Mock Test</title>
+
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+
+body{
+
+    background:#f4f7fe;
+    padding:20px;
+
+}
+
+
+
+.quiz-container{
+
+    max-width:900px;
+    margin:auto;
+    background:white;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+    overflow:hidden;
+
+}
+
+
+
+/* Header */
+
+.quiz-header{
+
+    background:linear-gradient(120deg,#004aad,#00c6ff);
+    color:white;
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+
+}
+
+
+.test-title{
+
+    font-size:22px;
+    font-weight:bold;
+
+}
+
+
+
+.timer-box{
+
+    background:white;
+    color:#004aad;
+    padding:10px 15px;
+    border-radius:10px;
+    font-weight:bold;
+
+}
+
+
+
+
+
+/* Progress */
+
+.progress-bar-container{
+
+    height:10px;
+    background:#ddd;
+
+}
+
+
+.progress-bar{
+
+    height:100%;
+    width:0%;
+    background:#00c853;
+    transition:.3s;
+
+}
+
+
+
+
+
+/* Question */
+
+.quiz-body{
+
+    padding:25px;
+
+}
+
+
+
+.q-meta{
+
+    color:#555;
+    font-size:16px;
+    margin-bottom:15px;
+
+}
+
+
+
+.question-text{
+
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:25px;
+    color:#222;
+
+}
+
+
+
+
+
+/* Options */
+
+
+.options-grid{
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+
+}
+
+
+
+.option-card{
+
+    border:2px solid #ddd;
+    padding:15px;
+    border-radius:10px;
+    cursor:pointer;
+    display:flex;
+    gap:10px;
+    transition:.3s;
+
+}
+
+
+
+.option-card:hover{
+
+    border-color:#004aad;
+
+}
+
+
+
+.option-card.selected{
+
+    background:#e3f2fd;
+    border-color:#004aad;
+
+}
+
+
+
+.option-card input{
+
+    cursor:pointer;
+
+}
+
+
+
+.option-text{
+
+    font-size:16px;
+
+}
+
+
+
+
+
+/* Footer */
+
+.quiz-footer{
+
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    border-top:1px solid #ddd;
+
+}
+
+
+
+.btn{
+
+    padding:12px 25px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+
+}
+
+
+
+.btn-secondary{
+
+    background:#ddd;
+    color:#333;
+
+}
+
+
+
+.btn-primary{
+
+    background:#004aad;
+    color:white;
+
+}
+
+
+
+.btn-submit{
+
+    background:#00a651;
+    color:white;
+
+}
+
+
+
+
+
+.btn:disabled{
+
+    opacity:.5;
+    cursor:not-allowed;
+
+}
+
+
+
+
+
+/* Mobile */
+
+@media(max-width:600px){
+
+
+.quiz-header{
+
+    flex-direction:column;
+    text-align:center;
+
+}
+
+
+
+.options-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+
+
+.question-text{
+
+    font-size:18px;
+
+}
+
+
+
+.quiz-footer{
+
+    flex-direction:column;
+
+}
+
+
+
+.btn{
+
+    width:100%;
+
+}
+
+
+}
+
+
+
+</style>
+
+
 </head>
+
 
 <body>
 
-  <header>
-    <h1>Scolex Computer Classes</h1>
-    <h2>Online Mock Test</h2>
 
-    <div class="info">
-      <span>
-        Student: <b id="studentName">Loading...</b>
-      </span>
 
-      <span>
-        Time Left: <b id="timer">30:00</b>
-      </span>
-    </div>
-  </header>
+<div class="quiz-container">
 
-  <div class="main">
 
-    <!-- Main Question Box -->
-    <div class="question-box">
 
-      <h3 id="questionNumber">Question 1</h3>
+<!-- Header -->
 
-      <p id="questionText">Loading Question...</p>
+<div class="quiz-header">
 
-      <div id="options">
-        <!-- Radio button options are dynamically injected here by js/mocktest.js -->
-      </div>
 
-      <div class="buttons">
-        <button type="button" onclick="previousQuestion()">&larr; Previous</button>
-        <button type="button" onclick="nextQuestion()">Save &amp; Next &rarr;</button>
-        <button type="button" class="btn-submit" onclick="confirmSubmit()">Submit Test</button>
-      </div>
+<div class="test-title" id="testTitleDisplay">
 
-    </div>
+Loading Test...
 
-    <!-- Question Palette Sidebar -->
-    <div class="palette">
-      <h3>Questions</h3>
-      <div id="questionPalette">
-        <!-- Palette buttons (1, 2, 3...) injected here -->
-      </div>
-    </div>
+</div>
 
-  </div>
 
-  <script src="js/mocktest.js"></script>
+
+<div class="timer-box">
+
+⏱️ Time Left:
+
+<span id="timer">
+
+60:00
+
+</span>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+<!-- Progress Bar -->
+
+
+<div class="progress-bar-container">
+
+<div class="progress-bar" id="progressBar"></div>
+
+</div>
+
+
+
+
+
+
+
+<!-- Question Section -->
+
+
+<div class="quiz-body">
+
+
+
+<div class="q-meta">
+
+Question 
+<span id="currentQNum">1</span>
+
+of
+
+<span id="totalQNum">0</span>
+
+
+</div>
+
+
+
+
+
+<div class="question-text" id="questionText">
+
+Loading Question...
+
+</div>
+
+
+
+
+
+
+<div class="options-grid">
+
+
+
+<label class="option-card" onclick="selectOption(0)">
+
+
+<input type="radio" name="quizOption">
+
+
+<span class="option-text" id="opt0">
+
+Option 1
+
+</span>
+
+
+</label>
+
+
+
+
+
+
+<label class="option-card" onclick="selectOption(1)">
+
+
+<input type="radio" name="quizOption">
+
+
+<span class="option-text" id="opt1">
+
+Option 2
+
+</span>
+
+
+</label>
+
+
+
+
+
+
+
+<label class="option-card" onclick="selectOption(2)">
+
+
+<input type="radio" name="quizOption">
+
+
+<span class="option-text" id="opt2">
+
+Option 3
+
+</span>
+
+
+</label>
+
+
+
+
+
+
+
+<label class="option-card" onclick="selectOption(3)">
+
+
+<input type="radio" name="quizOption">
+
+
+<span class="option-text" id="opt3">
+
+Option 4
+
+</span>
+
+
+</label>
+
+
+
+
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- Footer -->
+
+
+<div class="quiz-footer">
+
+
+<button 
+class="btn btn-secondary"
+id="prevBtn"
+onclick="prevQuestion()"
+disabled>
+
+← Previous
+
+</button>
+
+
+
+
+
+<button 
+class="btn btn-primary"
+id="nextBtn"
+onclick="nextQuestion()">
+
+Next →
+
+</button>
+
+
+
+
+
+
+<button
+class="btn btn-submit"
+id="submitBtn"
+onclick="submitTest()"
+style="display:none;">
+
+Submit Test 🚀
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+<script>
+// Display selected test title and pass testId to JS if needed
+document.addEventListener("DOMContentLoaded", () => {
+    let title = localStorage.getItem("testTitle") || localStorage.getItem("selectedTestTitle");
+    if (title) {
+        document.getElementById("testTitleDisplayinnerHTML") = title; // fixed below in clean version
+        document.getElementById("testTitleDisplay").innerText = title;
+    } else {
+        document.getElementById("testTitleDisplay").innerText = "Mock Test";
+    }
+});
+</script>
+
+
+<script src="mocktest.js"></script>
+
+
 
 </body>
+
 </html>

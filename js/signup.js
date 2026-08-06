@@ -1,59 +1,155 @@
-const scriptURL = "https://script.google.com/macros/s/AKfycbyhqPSVCfAJCUQ1eSs_fNVbA7A7WmduEMTpPGZel-KOEvzfWbMH6IzLfpTlKnfBSVJvkA/exec";
+//====================================================
+// SCOLEX STUDENT SIGNUP
+//====================================================
 
-function signup() {
-  const password = document.getElementById("password").value;
-  const confirm = document.getElementById("confirm").value;
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxq0Z8M-BMplN1DneyJayE6F6imrTxzm_e92aP_wTulXq_sSZWXvPcZcfqlUoZdAU6F9w/exec";
 
-  if (password !== confirm) {
-    alert("Passwords do not match!");
-    return;
-  }
 
-  const data = {
-    name: document.getElementById("name").value.trim(),
-    father: document.getElementById("father").value.trim(),
-    mobile: document.getElementById("mobile").value.trim(),
-    email: document.getElementById("email").value.trim(),
-    course: document.getElementById("course").value,
-    password: password
-  };
 
-  if (
-    !data.name ||
-    !data.father ||
-    !data.mobile ||
-    !data.email ||
-    !data.course ||
-    !data.password
-  ) {
-    alert("Please fill all fields");
-    return;
-  }
+function signup(){
 
-  fetch(scriptURL, {
-    method: "POST",
-    body: JSON.stringify(data)
-  })
-    .then(async (response) => {
-      if (!response.ok) {
-        throw new Error("Server response was not OK");
-      }
-      return response.json();
-    })
-    .then((result) => {
-      console.log(result);
 
-      if (result.status === "success") {
-        alert("Registration Successful");
-        window.location.href = "login.html";
-      } else if (result.status === "exists") {
-        alert("Mobile Number Already Registered");
-      } else {
-        alert("Registration Failed: " + (result.message || "Unknown error"));
-      }
-    })
-    .catch((error) => {
-      console.error(error);
-      alert("Connection Error or Invalid Response from Google Apps Script");
-    });
+
+const name = document.getElementById("name").value.trim();
+
+const father = document.getElementById("father").value.trim();
+
+const mobile = document.getElementById("mobile").value.trim();
+
+const email = document.getElementById("email").value.trim();
+
+const course = document.getElementById("course").value;
+
+const password = document.getElementById("password").value;
+
+const confirm = document.getElementById("confirm").value;
+
+
+
+
+// Password Check
+
+if(password !== confirm){
+
+alert("Password and Confirm Password do not match!");
+
+return;
+
+}
+
+
+
+
+const signupData = {
+
+
+action:"signup",
+
+name:name,
+
+father:father,
+
+mobile:mobile,
+
+email:email,
+
+course:course,
+
+password:password
+
+
+};
+
+
+
+
+
+fetch(SCRIPT_URL,{
+
+
+method:"POST",
+
+
+headers:{
+
+
+"Content-Type":"text/plain;charset=utf-8"
+
+
+},
+
+
+body:JSON.stringify(signupData)
+
+
+
+})
+
+
+
+.then(response=>response.json())
+
+
+
+.then(data=>{
+
+
+
+console.log(data);
+
+
+
+if(data.status=="success"){
+
+
+alert(
+"Registration Successful!\nYour Student ID: "
++data.studentId
+);
+
+
+window.location.href="login.html";
+
+
+}
+
+
+
+else if(data.status=="exists"){
+
+
+alert("Mobile Number Already Registered!");
+
+
+}
+
+
+
+else{
+
+
+alert("Registration Failed");
+
+
+}
+
+
+
+})
+
+
+
+.catch(error=>{
+
+
+console.log(error);
+
+
+alert("Server Error");
+
+
+});
+
+
+
 }

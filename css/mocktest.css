@@ -1,406 +1,265 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
-body{
-    background:#f2f6fc;
+body {
+  background: #f4f7fe;
+  padding: 20px;
 }
 
-
-/* ===========================
-   Course Heading
-=========================== */
-
-.course-header{
-
-    width:100%;
-
-    background:linear-gradient(90deg,#003b8f,#00a8ff);
-
-    color:white;
-
-    text-align:center;
-
-    padding:12px;
-
-    box-shadow:0 3px 10px #aaa;
-
+.main-wrapper {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
 }
 
-h1{
-    text-align: center;
-    font-size: 30px;
-     width: 100%;
-  margin-top: 10px;
-  padding: 14px;
-  font-weight: 700;
-  color: #f8f80d;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  background: linear-gradient(135deg, #ce0ba4 0%, #049b66 50%, #791365 100%);
-  background-size: 200% 200%;
-  border: none;
-  border-radius: 12px;
+.quiz-container {
+  flex: 3;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Header */
+.quiz-header {
+  background: linear-gradient(120deg, #004aad, #00c6ff);
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.test-title {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.timer-box {
+  background: white;
+  color: #004aad;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+/* Progress */
+.progress-bar-container {
+  height: 10px;
+  background: #ddd;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: #00c853;
+  transition: 0.3s;
+}
+
+/* Question */
+.quiz-body {
+  padding: 25px;
+}
+
+.q-meta {
+  color: #555;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.question-text {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  color: #222;
+}
+
+/* Options */
+.options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.option-card {
+  border: 2px solid #ddd;
+  padding: 15px;
+  border-radius: 10px;
   cursor: pointer;
-  box-shadow: 0 6px 18px rgba(0, 114, 255, 0.35),
-              0 3px 0 #004488;
-  transition: all 0.3s ease;
-  transform: translateY(0);
+  display: flex;
+  gap: 10px;
+  transition: 0.3s;
 }
-h2{
-    text-align: center;
-    text-align: center;
-     width: 100%;
-  margin-top: 5px;
-  padding: 14px;
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: #ffffff;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  background: linear-gradient(135deg, #b86a0b 0%, #0072ff 50%, #e60067 100%);
-  background-size: 200% 200%;
+
+.option-card:hover {
+  border-color: #004aad;
+}
+
+.option-card.selected {
+  background: #e3f2fd;
+  border-color: #004aad;
+}
+
+.option-card input {
+  cursor: pointer;
+}
+
+.option-text {
+  font-size: 16px;
+}
+
+/* Footer & Buttons */
+.quiz-footer {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  border-top: 1px solid #ddd;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 12px 20px;
   border: none;
-  border-radius: 12px;
-
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
 }
 
-/* ===========================
- Student Info
-=========================== */
-
-
-.info{
-
-    width:95%;
-
-    margin:15px auto;
-
-    background:white;
-
-    padding:12px 20px;
-
-    border-radius:10px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    box-shadow:0 2px 8px #ccc;
-
-    font-size:17px;
-
+.btn-secondary {
+  background: #ddd;
+  color: #333;
 }
 
-
-#timer{
-
-    color:#d00000;
-
-    font-weight:bold;
-
+.btn-primary {
+  background: #004aad;
+  color: white;
 }
 
-
-
-/* ===========================
- Main Layout
-=========================== */
-
-
-.main-container{
-
-    width:95%;
-
-    margin:auto;
-
-    display:flex;
-
-    gap:15px;
-
+.btn-warning {
+  background: #ff9800;
+  color: white;
 }
 
-
-
-/* ===========================
- Question Area
-=========================== */
-
-
-.question-box{
-
-    background:white;
-
-    flex:1;
-
-    padding:20px;
-
-    border-radius:10px;
-
-    box-shadow:0 3px 10px #ccc;
-
+.btn-submit {
+  background: #00a651;
+  color: white;
 }
 
-
-#questionNumber{
-
-    display:inline-block;
-
-    background:#003b8f;
-
-    color:white;
-
-    padding:7px 18px;
-
-    border-radius:20px;
-
-    font-size:17px;
-
-    margin-bottom:15px;
-
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
-
-#questionText{
-
-    font-size:19px;
-
-    font-weight:bold;
-
-    margin-bottom:15px;
-
+/* Palette Sidebar */
+.palette-sidebar {
+  flex: 1;
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  min-width: 260px;
 }
 
-
-
-/* ===========================
- Options
-=========================== */
-
-
-.option{
-
-    display:block;
-
-    padding:10px 15px;
-
-    margin:8px 0;
-
-    background:#f5f8ff;
-
-    border:1px solid #ddd;
-
-    border-radius:8px;
-
-    cursor:pointer;
-
-    font-size:16px;
-
+.palette-sidebar h3 {
+  margin-bottom: 15px;
+  color: #004aad;
 }
 
-
-.option:hover{
-
-    background:#d9efff;
-
-    border-color:#008cff;
-
+.palette-legend {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  font-size: 12px;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
 }
 
-
-.option input{
-
-    margin-right:10px;
-
+.palette-legend div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
-
-
-/* ===========================
- Buttons
-=========================== */
-
-
-.buttons{
-
-    margin-top:18px;
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:10px;
-
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
 }
 
+.legend-current { background: #004aad; }
+.legend-answered { background: #00c853; }
+.legend-marked { background: #ff9800; }
+.legend-unanswered { background: #e0e0e0; }
 
-.buttons button{
-
-    padding:10px 18px;
-
-    border:none;
-
-    background:#003b8f;
-
-    color:white;
-
-    border-radius:5px;
-
-    cursor:pointer;
-
-    font-size:15px;
-
+.question-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+  gap: 8px;
+  max-height: 350px;
+  overflow-y: auto;
 }
 
-
-.buttons button:hover{
-
-    background:#00a8ff;
-
+.palette-btn {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ccc;
+  background: #e0e0e0;
+  color: #333;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
-
-.btn-submit{
-
-    background:#008000!important;
-
+.palette-btn.current {
+  border: 2px solid #004aad;
+  transform: scale(1.05);
 }
 
-
-
-/* ===========================
- Question Palette
-=========================== */
-
-
-.palette{
-
-    width:250px;
-
-    background:white;
-
-    padding:15px;
-
-    border-radius:10px;
-
-    box-shadow:0 3px 10px #ccc;
-
+.palette-btn.answered {
+  background: #00c853;
+  color: white;
+  border-color: #00c853;
 }
 
-
-.palette h3{
-
-    text-align:center;
-
-    color:#003b8f;
-
-    margin-bottom:15px;
-
+.palette-btn.marked {
+  background: #ff9800;
+  color: white;
+  border-color: #ff9800;
 }
 
-
-
-#questionPalette{
-
-    display:grid;
-
-    grid-template-columns:repeat(5,1fr);
-
-    gap:8px;
-
+/* Responsive */
+@media (max-width: 850px) {
+  .main-wrapper {
+    flex-direction: column;
+  }
+  .palette-sidebar {
+    width: 100%;
+  }
 }
 
-
-
-#questionPalette button{
-
-    height:35px;
-
-    border:none;
-
-    background:#ddd;
-
-    border-radius:5px;
-
-    cursor:pointer;
-
-    font-weight:bold;
-
-}
-
-
-
-#questionPalette button:hover{
-
-    background:#00a8ff;
-
-    color:white;
-
-}
-
-
-.active-question{
-
-    background:#003b8f!important;
-
-    color:white;
-
-}
-
-
-.answered{
-
-    background:green!important;
-
-    color:white;
-
-}
-
-
-
-/* ===========================
- Mobile
-=========================== */
-
-
-@media(max-width:800px){
-
-
-.main-container{
-
-    flex-direction:column;
-
-}
-
-
-.palette{
-
-    width:100%;
-
-    order:2;
-
-}
-
-
-.info{
-
-    flex-direction:column;
-
-    gap:8px;
-
-}
-
-
-.course-header h1{
-
-    font-size:22px;
-
-}
-
-
+@media (max-width: 600px) {
+  .quiz-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .options-grid {
+    grid-template-columns: 1fr;
+  }
+  .quiz-footer {
+    flex-direction: column;
+  }
+  .btn {
+    width: 100%;
+  }
 }

@@ -2,7 +2,7 @@
 // SCOLEX STUDENT LOGIN
 //================================
 
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz4GnLgmd_cV31nocPlRWd6tH0K-HOB-FLtzrtdZ_UGhr8SfWn8SMv5OQnibb5-Mnyp/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz5gdbAKIv5HB791LdlGKxE0R4ON2gokAHvHolmI6bQJS63jiJXfDbMSD38hyw170uaxA/exec";
 
 
 function login(){

@@ -1,5 +1,5 @@
 // Google Apps Script Web App URL
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxJbITUlxNyhguWVel-XOigmzV3P5dJMcm-17U684FokweFF2IPbiQsE7VnFv1oUk99jg/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz5gdbAKIv5HB791LdlGKxE0R4ON2gokAHvHolmI6bQJS63jiJXfDbMSD38hyw170uaxA/exec";
 
 let mockQuestions = [];
 let currentQuestionIndex = 0;
@@ -198,6 +198,7 @@ function startTimer() {
 }
 
 // Submit Test & Send Payload to Apps Script
+// Updated Submit Test Handler
 function submitTest() {
   if (confirm("Are you sure you want to submit the test?")) {
     clearInterval(timerInterval);
@@ -218,12 +219,24 @@ function submitTest() {
       }
     });
 
-    const studentData = JSON.parse(localStorage.getItem("studentData")) || {
-      name: "Guest Student",
-      mobile: "N/A",
-      course: "N/A"
+    // Extract student details safely across nested or flat object structures
+    const rawData = JSON.parse(localStorage.getItem("studentData")) || {};
+    const student = rawData.student || rawData; // Handles both { student: {...} } and direct {...}
+
+    const payload = {
+      action: "saveResult",
+      studentName: student.name || student.studentName || "Guest Student",
+      mobile: student.mobile || "N/A",
+      course: student.course || "N/A",
+      testId: currentTestId,
+      total: mockQuestions.length,
+      correct: correctCount,
+      wrong: wrongCount,
+      unattempted: unattemptedCount,
+      score: score
     };
 
+    // UI Feedback
     const container = document.querySelector(".quiz-container");
     container.innerHTML = `
       <div style="padding: 40px; text-align: center;">
@@ -234,26 +247,16 @@ function submitTest() {
       </div>
     `;
 
-    const payload = {
-      action: "saveResult",
-      studentName: studentData.name,
-      mobile: studentData.mobile,
-      course: studentData.course,
-      testId: currentTestId,
-      total: mockQuestions.length,
-      correct: correctCount,
-      wrong: wrongCount,
-      unattempted: unattemptedCount,
-      score: score
-    };
-
+    // Send payload using text/plain to avoid CORS preflight stripping
     fetch(SCRIPT_URL, {
       method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
       body: JSON.stringify(payload)
     })
-    .then(() => console.log("Result saved to Google Sheet successfully!"))
+    .then(res => res.json())
+    .then(data => {
+      console.log("Response from server:", data);
+    })
     .catch(err => console.error("Error saving result:", err));
   }
 }
